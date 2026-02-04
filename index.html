@@ -1,90 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>For Annu ❤️</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Annu ❤️</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
+<style>
+* {
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
 
-    body {
-      margin: 0;
-      height: 100vh;
-      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
 
-    .card {
-      background: white;
-      width: 90%;
-      max-width: 420px;
-      padding: 25px;
-      border-radius: 25px;
-      text-align: center;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-      position: relative;
-    }
+.card {
+  background: white;
+  width: 90%;
+  max-width: 420px;
+  padding: 25px;
+  border-radius: 25px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  position: relative;
+}
 
-    h1 {
-      color: #ff4d6d;
-      margin-bottom: 10px;
-    }
+h1 {
+  color: #ff4d6d;
+}
 
-    p {
-      color: #444;
-      line-height: 1.6;
-      font-size: 15px;
-    }
+p {
+  color: #444;
+  line-height: 1.6;
+  font-size: 15px;
+}
 
-    button {
-      border: none;
-      padding: 14px 22px;
-      border-radius: 30px;
-      font-size: 16px;
-      cursor: pointer;
-      margin: 10px;
-    }
+.buttons {
+  position: relative;
+  height: 120px;
+}
 
-    #yesBtn {
-      background: #ff4d6d;
-      color: white;
-    }
+button {
+  border: none;
+  padding: 14px 22px;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  position: absolute;
+}
 
-    #noBtn {
-      background: #e0e0e0;
-    }
+#yesBtn {
+  background: #ff4d6d;
+  color: white;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+}
 
-    img {
-      width: 100%;
-      max-height: 220px;
-      object-fit: cover;
-      border-radius: 15px;
-      margin-top: 15px;
-    }
+#noBtn {
+  background: #e0e0e0;
+  left: 10%;
+  top: 0;
+}
 
-    .hidden {
-      display: none;
-    }
+img {
+  width: 100%;
+  max-height: 220px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-top: 15px;
+}
 
-    .heart {
-      position: absolute;
-      font-size: 18px;
-      animation: fall 5s linear infinite;
-      top: -10%;
-    }
+.heart {
+  position: fixed;
+  font-size: 18px;
+  animation: fall 5s linear infinite;
+  top: -10%;
+}
 
-    @keyframes fall {
-      0% { transform: translateY(0); opacity: 1; }
-      100% { transform: translateY(120vh); opacity: 0; }
-    }
-  </style>
+@keyframes fall {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(120vh); opacity: 0; }
+}
+</style>
 </head>
 
 <body>
@@ -94,64 +99,82 @@
 </audio>
 
 <div class="card" id="card">
-
   <h1>Will you be my Valentine? 💖</h1>
 
-  <button id="yesBtn">Yes 😍</button>
-  <button id="noBtn">No 😜</button>
-
+  <div class="buttons">
+    <button id="yesBtn">Yes 😍</button>
+    <button id="noBtn">No 😜</button>
+  </div>
 </div>
 
 <script>
-  const card = document.getElementById("card");
-  const music = document.getElementById("music");
-  const noTexts = [
-    "Are you sure?",
-    "Think again 🤔",
-    "You’ll regret this 😜",
-    "Last chance!",
-    "Please Think again 🤔",
-    "Really?? 😭"
-  ];
-  let noCount = 0;
+const music = document.getElementById("music");
+let musicStarted = false;
 
-  document.getElementById("noBtn").onclick = () => {
-    document.getElementById("noBtn").innerText =
-      noTexts[Math.min(noCount++, noTexts.length - 1)];
-  };
-
-  document.getElementById("yesBtn").onclick = () => {
+function startMusic() {
+  if (!musicStarted) {
     music.play();
-
-    card.innerHTML = `
-      <h1>Yayyy!! 💖🥰</h1>
-
-      <p>
-        Tum mere liye hamesha important rahogi 💖<br><br>
-        I always love you.<br>
-        Kabhi kabhi main gussa dila deta hun wo temperory hota hai 🥺<br><br>
-        Thank you for understanding 💖<br>
-        Love you Annu 💕
-      </p>
-
-      <h2 style="color:#ff4d6d;">Will you go on a date with me? 💌</h2>
-
-      <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZWJpNGZ4ZzdhdTRoaGZ1YndtcXN0c3Z1ZXNsYnd0Y3R6aHR5YSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/MDJ9IbxxvDUQM/giphy.gif">
-    `;
-
-    startHearts();
-  };
-
-  function startHearts() {
-    setInterval(() => {
-      const heart = document.createElement("div");
-      heart.className = "heart";
-      heart.innerHTML = "💖";
-      heart.style.left = Math.random() * 100 + "vw";
-      document.body.appendChild(heart);
-      setTimeout(() => heart.remove(), 5000);
-    }, 300);
+    musicStarted = true;
   }
+}
+
+document.body.addEventListener("click", startMusic);
+
+const noTexts = [
+  "Are you sure?",
+  "Think again 🤔",
+  "You’ll regret this 😜",
+  "Last chance!",
+  "Really?? 😭"
+];
+
+let noIndex = 0;
+const noBtn = document.getElementById("noBtn");
+
+noBtn.onclick = () => {
+  startMusic();
+
+  noBtn.innerText = noTexts[Math.min(noIndex, noTexts.length - 1)];
+  noIndex++;
+
+  // Move the No button randomly (playful)
+  noBtn.style.left = Math.random() * 60 + "%";
+  noBtn.style.top = Math.random() * 40 + "%";
+};
+
+document.getElementById("yesBtn").onclick = () => {
+  startMusic();
+
+  const card = document.getElementById("card");
+  card.innerHTML = `
+    <h1>Yayyy!! 💖🥰</h1>
+
+    <p>
+      Tum mere liye hamesha important rahogi 💖<br><br>
+      I always love you.<br>
+      Kabhi kabhi main gussa dila deta hun wo temperory hota hai 🥺<br><br>
+      Thank you for understanding 💖<br>
+      Love you Annu 💕
+    </p>
+
+    <h2 style="color:#ff4d6d;">Will you go on a date with me? 💌</h2>
+
+    <img src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif">
+  `;
+
+  startHearts();
+};
+
+function startHearts() {
+  setInterval(() => {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random() * 100 + "vw";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 5000);
+  }, 300);
+}
 </script>
 
 </body>
