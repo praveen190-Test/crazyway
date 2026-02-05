@@ -6,13 +6,10 @@
 
 <title>For Kushum ❤️</title>
 
-<!-- Romantic Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
@@ -21,21 +18,23 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow-y: auto;   /* allows vertical scroll if content increases */
+  overflow-y: auto;
   font-family: 'Poppins', sans-serif;
   padding: 20px 0;
 }
 
-.card { background: #fff;
-       width: 90%; max-width: 420px;
-       padding: 25px; border-radius: 25px;
-       text-align: center;
-       box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-       max-height: 90vh;
-       overflow-y: auto;
-       position: relative;
-      }
-  
+.card {
+  background: #fff;
+  width: 90%;
+  max-width: 420px;
+  padding: 25px;
+  border-radius: 25px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
 .lovegif{
   width:100%;
   max-height:260px;
@@ -85,20 +84,11 @@ button {
   top: 0;
 }
 
-img {
-  width: 100%;
-  max-height: 200px;
-  object-fit: contain;   /* prevents cropping & overflow */
-  border-radius: 15px;
-  margin-top: 15px;
-}
-
 .date-text {
   font-family: 'Pacifico', cursive;
   color: #ff4d6d;
   font-size: 26px;
   margin-top: 15px;
-  text-shadow: 0 0 8px rgba(255,77,109,0.35);
 }
 
 .heart {
@@ -119,9 +109,8 @@ img {
 
 <body>
 
-<!-- Audio MUST be unmuted and triggered by click -->
 <audio id="music" preload="auto">
-  <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mpeg">
+  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_4c2c6d2f7b.mp3?filename=romantic-ambient-11065.mp3" type="audio/mpeg">
 </audio>
 
 <div class="card" id="card">
@@ -135,8 +124,6 @@ img {
 
 <script>
 const music = document.getElementById("music");
-music.muted = false;
-
 let musicPlayed = false;
 
 function playMusic() {
@@ -162,7 +149,6 @@ const noBtn = document.getElementById("noBtn");
 noBtn.addEventListener("click", () => {
   noBtn.innerText = noTexts[Math.min(noIndex, noTexts.length - 1)];
   noIndex++;
-
   noBtn.style.left = Math.random() * 60 + "%";
   noBtn.style.top = Math.random() * 40 + "%";
 });
@@ -186,8 +172,8 @@ document.getElementById("yesBtn").addEventListener("click", () => {
 
     <h2 class="date-text">Thank you so much Kushum 💕</h2>
 
-    <img src="https://drive.google.com/uc?export=view&id=1Cywv80eFcYU5zTxUAko2Mmx7RTwcBl6V" class="lovegif">
-
+    <!-- FIXED GIF LINK -->
+    <img src="https://drive.google.com/uc?export=download&id=1Cywv80eFcYU5zTxUAko2Mmx7RTwcBl6V" class="lovegif">
   `;
 
   startHearts();
